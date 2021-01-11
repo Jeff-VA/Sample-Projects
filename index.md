@@ -11,7 +11,7 @@ Thank you for taking the time to preview a few my data analysis sample projects.
 **Project 1: [Prediction of US Forest FIre Severity](forest_fire_project/overview.md)**
 >This study showcases the application of a multiple linear regression analysis to attempt forest fire prediction with nearest weather station data in the United States.  
 
-**Project 2: [Telecommunications Company Customer Churn Prediction](customer_churn_projecr/overview.md)**
+**Project 2: [Telecommunications Company Customer Churn Prediction](customer_churn_project/overview.md)**
 >This analysis of hypothetical telecommunications data demonstrates how a logistic regression algorithm may be trained and tested to effectively predict customer attrition.
 
 **Project 3: [Test Classification for Chatbot Intents](intent_text_classification/overview.md)**
