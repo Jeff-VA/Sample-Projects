@@ -6,7 +6,7 @@ Thank you for taking the time to preview a few of my data analysis sample projec
 
 ## Projects Overview
 
-Below (highlighted in blue) are links to three separate projects that showcase the value of python for three different predictive analytics use cases. Each of the projects below show how Python code may be used to create insight with predictive and classification algorithms.
+Below are links to three separate projects that showcase the value of python for three different predictive analytics use cases. Each of the projects below show how Python code may be used to create insight with predictive and classification algorithms.
 
 **Project 1: [Prediction of US Forest FIre Severity](forest_fire_project/overview.md)**
 >This study showcases the application of a multiple linear regression analysis to attempt forest fire prediction with nearest weather station data in the United States. [Click Here to view](forest_fire_project/overview.md)
