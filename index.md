@@ -1,3 +1,21 @@
+
+
+## About Me
+
+Currently, I am an MIS team specialist for a business-to-business IT Services and print management company. I love this role as I have a passion for exploring data and transforming it in novel ways to gain insight. From my experience of data maintenance and reporting in a fast-growing organization in tandem with achieving a Master of Science in Data Analytics degree, I am certain that my skillset will create value for a variety of business functions and data consumers wherever it is applied. I am genuinely excited to build and refine data analysis pipelines for data consumers and business stakeholders in my future career.
+
+## Projects Overview
+
+Thank you for taking the time to preview a few my data analysis sample projects. Below are links to three separate projects that showcase the value of python for three different predictive analytics use cases. Each of the projects below show how Python code may be used to create insight with predictive and classification algorithms. Additionally, the `Prediction of US Forest Fires` project below demonstrates the capability of Python code to combine data from various sources. 
+
+
+
+
+
+
+In a practical business sense, this approach may be used to combine data from an SQL database, a Servicenow ticketing system, and a Salesforce customer relationship management system.
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/Jeff-VA/Sample-Projects/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
