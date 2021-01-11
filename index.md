@@ -9,13 +9,13 @@ Currently, I am an MIS team specialist for a business-to-business IT Services an
 Thank you for taking the time to preview a few my data analysis sample projects. Below are links to three separate projects that showcase the value of python for three different predictive analytics use cases. Each of the projects below show how Python code may be used to create insight with predictive and classification algorithms. Additionally, the `Prediction of US Forest Fires` project below demonstrates the capability of Python code to combine data from various sources. 
 
 **Project 1: [Prediction of US Forest FIre Severity](forest_fire_project/overview.md)**
-In a practical business sense, this approach may be used to combine data from an SQL database, a Servicenow ticketing system, and a Salesforce customer relationship management system.
+>In a practical business sense, this approach may be used to combine data from an SQL database, a Servicenow ticketing system, and a Salesforce customer relationship management system.
 
 **Project 2: [Telecommunications Company Customer Churn Prediction](customer_churn_projecr/overview.md)**
-test text
+>test text
 
 **Project 3: [Test Classification for Chatbot Intents](intent_text_classification/overview.md)**
-test text
+>test text
 
 ## Welcome to GitHub Pages
 
