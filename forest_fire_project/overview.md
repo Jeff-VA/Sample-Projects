@@ -1,4 +1,4 @@
-## Prediction of US Forest FIre Severity
+## Prediction of US Forest Fire Severity
 
 ``` python
 #define station query
