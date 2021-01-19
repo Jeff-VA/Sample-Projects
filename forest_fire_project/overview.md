@@ -31,6 +31,7 @@ firedf = pd.read_sql_query('''SELECT FIRE_YEAR,
                               FROM Fires''', connection)
 ```
 
+![haversine distance formula](haversine_distance_formula.png)
 
 ``` python
 #use Haversine Distance fromula to find distance from fires to stations
