@@ -15,7 +15,7 @@ for year in tqdm_notebook(range(1992, 2016)):
     df.to_csv(filename, index = False)
 ```
 
-[first notebook](Step_1_NOAA_weather_data_gathering_notebook.ipynb)
+[First Notebook: NOAA weather Gathering](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_1_NOAA_weather_data_gathering_notebook.ipynb)
 
 
 ``` python
@@ -55,8 +55,13 @@ def find_nearest(lat, long):
         axis=1)
     return (weatherwith_stations.loc[distances.idxmin(), 'ref_key'], distances.min())
 ```
-[second notebook](Step_2_Find_nearest_stations.ipynb)
-[third notebook](Step_3_Join_stations_and_weather_data.ipynb)
+[Second Notebook Find nearest stations with haversine distance formula](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_2_Find_nearest_stations.ipynb)
+
+[third notebook: joining weather station data](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_3_Join_stations_and_weather_data.ipynb)
+
+[Fourth Notebook: Data Cleaning](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%204%20Data%20Cleaning%20and%20Preparation.ipynb)
+
+[Fifth Notebook: Analysis](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%205%20Analysis.ipynb)
 
 ``` python
 
