@@ -8,6 +8,10 @@ In a practical sense, the techniques outlined below demonstrate how a data analy
 
 ### Part 1: The Data Gathering Process
 
+When contemplating which variables might explain forest fire size, one quickly discovers the intuitive question: Does the weather on the date a fire was observed influence its severity?  Fortunately, vast amounts of historical weather observations around the world are readily available to the public via [this NOAA dataset]( https://www.kaggle.com/noaa/gsod).
+
+To make this data available for download in an efficient way, the National Oceanic and Atmospheric Administration hosts it with the Google Big Query API. With the following code, weather observations between 1992 and 2015 with a station reference table are programmatically queried and downloaded.
+
 ``` python
 #define station query
 query = ('SELECT * FROM bigquery-public-data.noaa_gsod.stations')
