@@ -6,7 +6,7 @@ In this project, python code is used to demonstrate how large amounts of sparsel
 
 In a practical sense, the techniques outlined below demonstrate how a data analysis process is used to gather and clean immense volumes of data from seemingly unrelated sources to test a predictive model.
 
-
+### Part 1: The Data Gathering Process
 
 ``` python
 #define station query
