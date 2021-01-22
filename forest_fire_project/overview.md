@@ -114,7 +114,9 @@ for var in null_vars:
 for var in null_vars:
     df[var].fillna(df[var].median(), inplace = True)
 #ensure success
+df.info(null_counts=True)
 ```
+![output from null imputation success](null_imputation_output.png)
 
 ``` python
 
