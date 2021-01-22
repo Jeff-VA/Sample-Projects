@@ -83,7 +83,7 @@ Once the two queries for data gathering and two functions for data joining are e
 
 Finally, after much preparation, a single table containing most proximate weather data for each of 1.88 million fire observations from between 1992 and 2015 in the United States is created.
 
-![precleaning table output](Precleaning_table.png)
+![precleaning table output](precleaning_table.png)
 
 
 [Fourth Notebook: Data Cleaning](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%204%20Data%20Cleaning%20and%20Preparation.ipynb)
