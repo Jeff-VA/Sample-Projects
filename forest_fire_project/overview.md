@@ -121,5 +121,66 @@ df.info(null_counts=True)
 ![output from null imputation success](null_imputation_output.png)
 
 ``` python
+#count rows before duplicates are dropped
+obs_before_drop = len(df)
+#drop all duplicate rows
+df.drop_duplicates(inplace=True)
+df.reset_index(drop=True, inplace=True)
+#verify number of duplicate observations dropped
+print("Total Observations dropped:",(obs_before_drop - len(df)))
+```
+
+Total Observations dropped: 6437
+
+``` python
+#retain cat_df for univariate analysis of categorical variables
+cat_df = df[['month','STAT_CAUSE_DESCR']]
+cat_df = cat_df.join(df['FIRE_SIZE'])
+
+#loop through categorical variables and create dummy variables
+for var in ['month','STAT_CAUSE_DESCR']:
+    dummies = pd.get_dummies(df[var], drop_first=True)
+    #rename each dummy variable to include original column title
+    for col in dummies:
+        dummies.rename(columns={col:'{}_{}'.format(var,col)}, inplace=True)
+    #join each dummy dataframe to original table
+    df = df.join(dummies)
+    #drop categorical variable from original dataframe
+    df.drop(columns=var, inplace=True)
+
+#ensure all variables in the dataframe are of a numeric datatype
+for var in df.columns:
+    df[var] = pd.to_numeric(df[var])
+```
+
+talk about and preview distributions here, log transformation, outliers etc
+
+``` python
+#remove prcp for outlier consideration since it is so highly skewed
+if 'prcp' in cont_vars:
+    cont_vars.remove('prcp')
+#calulate z-scores for all remoaining continuous variables
+z_score = stats.zscore(df[cont_vars])
+#define number of observations with high z-scores
+obs_to_remove = len(df) - len(df[(z_score < 3).all(axis=1)])
+#remove observations with high z-scores
+df = df[(z_score < 3).all(axis=1)]
+obs_removed = obs_to_remove
+
+#use while loop to recursively remove remaining outliers
+while (obs_to_remove > 0):
+    #calulate z-scores for all remoaining continuous variables
+    z_score = stats.zscore(df[cont_vars])
+    #define number of observations with high z-scores
+    obs_to_remove = len(df) - len(df[(z_score < 3).all(axis=1)])
+    #remove observations with high z-scores
+    df = df[(z_score < 3).all(axis=1)]
+    #add up observations removed
+    obs_removed += obs_to_remove
+#print number of observations removed
+print('Obervations removed: {}'.format(obs_removed)) 
+```
+
+``` python
 
 ```
