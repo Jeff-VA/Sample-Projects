@@ -73,13 +73,18 @@ def find_nearest(lat, long):
     return (weatherwith_stations.loc[distances.idxmin(), 'ref_key'], distances.min())
 ```
 
-
+Once the two queries for data gathering and two functions for data joining are established, they are applied to scripts that loop through all the fire observations and weather data between 1992 and 2015. Even with the help of processing parallelization, this takes upwards of eight hours with the following three annotated code notebooks.
 
 [First Notebook: NOAA Weather Data Gathering](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_1_NOAA_weather_data_gathering_notebook.ipynb)
 
 [Second Notebook: Find Nearest Stations with the Haversine Distance Formula](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_2_Find_nearest_stations.ipynb)
 
 [Third Notebook: Joining Weather Station Data](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_3_Join_stations_and_weather_data.ipynb)
+
+Finally, after much preparation, a single table containing most proximate weather data for each of 1.88 million fire observations from between 1992 and 2015 in the United States is created.
+
+![precleaning table output](Precleaning_table.png)
+
 
 [Fourth Notebook: Data Cleaning](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%204%20Data%20Cleaning%20and%20Preparation.ipynb)
 
