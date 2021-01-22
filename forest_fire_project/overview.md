@@ -85,8 +85,9 @@ Finally, after much preparation, a single table containing most proximate weathe
 
 ![precleaning table output](precleaning_table.png)
 
+### Part 2: The Data Cleaning Process
 
-[Fourth Notebook: Data Cleaning](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%204%20Data%20Cleaning%20and%20Preparation.ipynb)
+Even though all the data needed to build a predictive model for forest fire size prediction are readily available in one table, a few preliminary cleaning steps must be addressed.  Below, the cleaning steps are outlined briefly. To see the source code, [this link](‘https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%204%20Data%20Cleaning%20and%20Preparation.ipynb’) navigates to an annotated Jupyter Notebook.
 
 [Fifth Notebook: Analysis](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%205%20Analysis.ipynb)
 
