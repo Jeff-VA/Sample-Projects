@@ -27,8 +27,7 @@ for year in tqdm_notebook(range(1992, 2016)):
     df.to_csv(filename, index = False)
 ```
 
-[First Notebook: NOAA weather Gathering](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_1_NOAA_weather_data_gathering_notebook.ipynb)
-
+Next, [1.88 million US forest fire observations]( https://www.kaggle.com/rtatman/188-million-us-wildfires) are easily queried from an SQLite database with Python’s `sqlite3` package.
 
 ``` python
 #create dataframe by querying Fires table from *.sqlite database
@@ -43,7 +42,13 @@ firedf = pd.read_sql_query('''SELECT FIRE_YEAR,
                               FROM Fires''', connection)
 ```
 
+In both the fire observation dataset and weather station table, there are latitude and longitude reference columns. Reasonably, it is possible to find the nearest weather station to each fire observation, then join the weather event for the date each fire was observed. 
+
+However, one issue that quickly arises is how to calculate each nearest weather station distance. Although it may be easy to write a function that finds the difference in each latitude and longitude coordinates, then finds a distance with a Pythagorean theorem calculation, the earth is round. Therefore, this approach may lead to errors in finding the actual nearest station. In turn, the “Haversine Distance” Formula is used to account for this.
+
 ![haversine distance formula](haversine_distance_formula.png)
+
+With Python’s `math` package, trigonometric modules easily replicate this equation in the `dist()` function below. Since the `dist()` function simply calculates Haversine distances, it must be nested in another function to find the nearest weather station from all calculations. The `find_nearest()` function does this easily by finding the minimum value calculated in a table column.
 
 ``` python
 #use Haversine Distance fromula to find distance from fires to stations
@@ -67,6 +72,11 @@ def find_nearest(lat, long):
         axis=1)
     return (weatherwith_stations.loc[distances.idxmin(), 'ref_key'], distances.min())
 ```
+
+
+
+[First Notebook: NOAA weather Gathering](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_1_NOAA_weather_data_gathering_notebook.ipynb)
+
 [Second Notebook Find nearest stations with haversine distance formula](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_2_Find_nearest_stations.ipynb)
 
 [third notebook: joining weather station data](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step_3_Join_stations_and_weather_data.ipynb)
