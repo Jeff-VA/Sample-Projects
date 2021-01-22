@@ -91,9 +91,31 @@ Even though all the data needed to build a predictive model for forest fire size
 
 [Fifth Notebook: Analysis](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%205%20Analysis.ipynb)
 
+First, to effectively interpret these data, an issue of null indicator values is addressed. With close inspection of the unclean table previewed a few lines above, one quickly notices that there are aberrant indicators for missing values in the weather data. For example, for the `dewp` and `slp` variables, `9999.9` represent missing data. In the following code block, these indicator values are all removed, then imputed with a median value for that variable. 
 
+``` python
+#Replace Null indicators with actual Null values
+df['dewp'].replace({9999.9: None}, inplace=True)
+df['slp'].replace({9999.9: None}, inplace=True)
+df['visib'].replace({999.9: None}, inplace=True)
+df['wdsp'].replace({999.9: None}, inplace=True)
+df['mxpsd'].replace({999.9: None}, inplace=True)
+df['gust'].replace({999.9: None}, inplace=True)
+df['max'].replace({9999.9: None}, inplace=True)
+df['min'].replace({9999.9: None}, inplace=True)
+df['prcp'].replace({99.99: None}, inplace=True)
+#create list of null variables
+null_vars = ['dewp','slp','visib','wdsp','mxpsd','gust','max','min','prcp']
+#ensure datatypes are float for variables with null values
+for var in null_vars:
+    df[var] = pd.to_numeric(df[var])
+    
+#loop through null variables and impute medians
+for var in null_vars:
+    df[var].fillna(df[var].median(), inplace = True)
+#ensure success
+```
 
 ``` python
 
 ```
-
