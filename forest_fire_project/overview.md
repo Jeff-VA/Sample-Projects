@@ -91,7 +91,9 @@ Even though all the data needed to build a predictive model for forest fire size
 
 [Fifth Notebook: Analysis](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/Step%205%20Analysis.ipynb)
 
-First, to effectively interpret these data, an issue of null indicator values is addressed. With close inspection of the unclean table previewed a few lines above, one quickly notices that there are aberrant indicators for missing values in the weather data. For example, for the `dewp` and `slp` variables, `9999.9` represent missing data. In the following code block, these indicator values are all removed, then imputed with a median value for that variable. 
+First, to effectively interpret these data, an issue of null indicator values is addressed. With close inspection of the unclean table previewed a few lines above, one quickly notices that there are aberrant indicators for missing values in the weather data. For example, for the `dewp` and `slp` variables, `9999.9` represent missing data. In the following code block, these indicator values are all removed, then imputed with a median value for that variable.  The reason medians are imputed, is to account for data skew. Additionally, since the dataset has a fairly large percentage of non-null values, imputation helps retain data for predictive accuracy.
+
+In the output following the code block, the entire `Pandas` data-frame without null counts is previewed to ensure successful imputation. Note that there are 21 variables in the data, including 16 weather variables and the target variable to be predicted: `FIRE_SIZE`. 
 
 ``` python
 #Replace Null indicators with actual Null values
