@@ -194,6 +194,12 @@ Finally, a clean dataset containing only fire observation size in acres and prep
 
 ![clean dataset table](clean_dataset_preview.png)
 
+### Part 3: Analysis
+
+When attempting to build a multiple linear regression model that explains variance in forest fire size, one hurtle quickly arises. A linear regression model fails to explain variance in fire size due to an abnormally right skewed distribution.  
+
+
+
 ``` python
 
 ```
