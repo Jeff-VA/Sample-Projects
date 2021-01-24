@@ -19,6 +19,3 @@ Below are links to three separate projects that showcase the value of python for
 
 **Project 3: [Prediction of US Forest FIre Severity](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/overview.md)**
 >This study showcases the application of a multiple linear regression analysis to attempt forest fire prediction with nearest weather station data in the United States. [Click Here to view](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/forest_fire_project/overview.md)
-
-
-[test link](https://jeff-va.github.io/Sample-Projects/customer_churn_project/overview.md)
