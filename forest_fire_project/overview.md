@@ -198,7 +198,24 @@ Finally, a clean dataset containing only fire observation size in acres and prep
 
 When attempting to build a multiple linear regression model that explains variance in forest fire size, one hurtle quickly arises. A linear regression model fails to explain variance in fire size due to an abnormally right skewed distribution.  
 
+![right skewed fire size hist](right_skewed_firesize.png)
 
+This issue is overcome slightly by logarithmically transforming fire size in acres target variable prior to building a multiple linear regression model.
+
+![log fire size hist](log_firesize.png)
+
+Although the distribution of fire size is not completely normal after transformation, an initial multiple regression model that explains a significantly higher percentage of variance in fire size is create with an r-squared statistic of approximately 0.1 in with the code below:
+
+``` python
+#create multiple regression model log transformed with all predictor variables 
+Xc = sm.add_constant(x_train)
+linear_regression = sm.OLS(np.log(y_train),Xc)
+full_fitted_model = linear_regression.fit()
+#summarize model with log transformation:
+full_fitted_model.summary()
+```
+
+![full model summary](full_model_results.png)
 
 ``` python
 
