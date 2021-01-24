@@ -215,7 +215,112 @@ full_fitted_model = linear_regression.fit()
 full_fitted_model.summary()
 ```
 
+Output:
+
 ![full model summary](full_model_results.png)
+
+This full model explains an insignificant portion of fire size in acres for prediction, but perhaps there are certain redundant variables that lead to instability.  Maybe, the prediction accuracy will even increase with the reduction of redundant and multicollinear variables. Subsequently, two code blocks are used to programmatically reduce variable complexity.
+
+This first code block repetitively removes variables with a variance inflation factor or “VIF” of greater than 10.  If an input variable’s VIF is unreasonably high, it might be inferred that the variable is redundant in a multiple linear regression model. In total, nine variables are removed from the model.
+
+``` python
+#create VIF data frame and assign variable names to `Feature` column
+vif_data = pd.DataFrame() 
+vif_data['feature'] = x.columns
+#find VIF for each feature and assign to `VIF` column
+vif_data['VIF'] = [variance_inflation_factor(x.values, i) 
+                   for i in tqdm(range(len(x.columns)))]
+#assign variable with the maximum df to the `col` variable
+col = vif_data[vif_data['VIF'] == vif_data['VIF'].max()]['feature'].values[0]
+#assign max vif to the `vif` variable
+vif = vif_data['VIF'].max()
+#drop the variable only if the vif is greater than 10
+if vif > 10:
+    x.drop(columns=col, inplace=True)
+#print the name of the variable that was dropped
+print('variable dropped: {}'.format(col),'\nVIF: {}'.format(vif))
+
+#loop through remaining predictor variables and drop each with a VIF higher than 10
+#begin while loop
+while vif_data['VIF'].max() > 10:
+    #create VIF data frame and assign variable names to `Feature` column
+    vif_data = pd.DataFrame() 
+    vif_data['feature'] = x.columns
+    #find VIF for each feature and assign to `VIF` column
+    vif_data['VIF'] = [variance_inflation_factor(x.values, i) 
+                       for i in tqdm(range(len(x.columns)))]
+    #assign variable with the maximum df to the `col` variable
+    col = vif_data[vif_data['VIF'] == vif_data['VIF'].max()]['feature'].values[0]
+    #assign max vif to the `vif` variable
+    vif = vif_data['VIF'].max()
+    #drop the variable only if the vif is greater than 10
+    if vif > 10:
+        x.drop(columns=col, inplace=True)
+        #print the name of the variable that was dropped
+        print('variable dropped: {}'.format(col),'\nVIF: {}'.format(vif))
+#trim df variables based of VIF results
+cols = list(x.columns.values) + ['FIRE_SIZE']
+df = df[cols]
+```
+
+In this second code block, each remaining variable is inspected for its contribution to the adjusted r-squared statistic.  If a variable has an unreasonably low or even negative r-squared statistic, it is excluded from the reduced model.
+
+``` python
+#variable reduction by Adjusted R2
+#adjusted R2 function definition
+def adj_rsquared(x_train, y_train, x_test):
+    '''
+    This function predicts the R2 statistic for a training data set predicitons compared
+    to a test dataset.  The R2 Statistic is then adjusted for the number of input variables in 
+    the model by the formula `1-(1-r2)*(n-1)/(n-p-1)` where n is the number of observations and 
+    p is the number of independent variables (levels)  
+    
+    The single output variable is the adjusted R squared statistic
+    '''
+    reg = LinearRegression()
+    y_pred = reg.fit(x_train, np.log(y_train)).predict(x_test)
+    r2 = r2_score(np.log(y_test),y_pred)
+    n = len(x_test)
+    p = len(x_test.columns)
+    adj_r2 = 1-(1-r2)*(n-1)/(n-p-1)
+    return adj_r2
+
+#Loop through all predictor variables and find adjusted r2 contributions for each variable
+#create statistic dataframe
+r2_per_var = pd.DataFrame()
+#loop through all vars in training dataset
+for var in tqdm(x_train.columns):
+    #create subset of vars not including variable in question
+    selection = [i for i in x_train.columns if i!=var]
+    #subtract adjusted R2 from model without variable
+    diff = adj_rsquared(x_train, y_train, x_test) - adj_rsquared(x_train[selection], y_train, x_test[selection])
+    #create temp dataframe of resulting variable and value
+    temp_df = pd.DataFrame({"Variable":[var],
+                          "R2 Contribution":[diff]})
+    #append all resulting values to `r2_per_var` dataframe
+    r2_per_var = r2_per_var.append(temp_df)
+#format resulting dataframe
+r2_per_var["R2 Contribution"] = r2_per_var["R2 Contribution"].apply('{0:.9f}'.format)
+r2_per_var.reset_index(inplace=True, drop=True)
+r2_per_var['R2 Contribution'] = r2_per_var['R2 Contribution'].astype('float')
+#create percent contribution column
+r2_per_var["R2 Percent"] = r2_per_var["R2 Contribution"]/r2_per_var["R2 Contribution"].sum()
+```
+
+Finally, from the code below, a reduced model is fit to explain variance in fire size. Unfortunately, the explained variance is still insignificantly low with an r-squared statistic of 0.076.
+
+``` python
+#sumarize reduced model
+Xc = sm.add_constant(x_train)
+linear_regression = sm.OLS(np.log(y_train),Xc)
+reduced_fitted_model = linear_regression.fit()
+reduced_fitted_model.summary()
+```
+Output:
+
+![reduced model output](reduced_model_results.png)
+
+### Results
 
 ``` python
 
