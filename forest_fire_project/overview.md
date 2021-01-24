@@ -321,7 +321,10 @@ Output:
 ![reduced model output](reduced_model_results.png)
 
 ### Results
+Although this model fails to predict fire size in acres as previewed in the predicted value residual plot generated below, some insight of value is gained. Specifically, the variable reduction performed in the previous few code blocks did uncover certain weather variables that have a statistically significant correlation with the logarithmic transformation of fire size in acres. It may be reasonably inferred that the following weather observation variables contribute to fire severity on a daily basis:
+* `wdsp` (The average windspeed on the date of fire observation)
+* `rain_drizzle` (Whether there was rain on the date of the fire observation)
+* `snow_ice_pellets` (Whether there were snow or ice pellets on the date of the fire observation)
 
-``` python
+![reduced model residual plot](reduced_model_resid_plot.png)
 
-```
