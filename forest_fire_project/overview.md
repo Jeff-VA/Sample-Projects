@@ -120,6 +120,13 @@ df.info(null_counts=True)
 ```
 ![output from null imputation success](null_imputation_output.png)
 
+In the next three code blocks, the remaining three data cleaning steps are performed:
+>1. Entirely duplicate rows are removed. 
+>2. Categorical variables are transformed into a series of binary indicator levels.
+>3. All observations that have outliers in continuous variables are repetitively removed until there are none left.
+
+#### 1. Remove Duplicate Rows
+
 ``` python
 #count rows before duplicates are dropped
 obs_before_drop = len(df)
@@ -131,6 +138,8 @@ print("Total Observations dropped:",(obs_before_drop - len(df)))
 ```
 
 Total Observations dropped: 6437
+
+#### 2. Convert Categorical Variables to Dummy Levels
 
 ``` python
 #retain cat_df for univariate analysis of categorical variables
@@ -153,7 +162,7 @@ for var in df.columns:
     df[var] = pd.to_numeric(df[var])
 ```
 
-talk about and preview distributions here, log transformation, outliers etc
+#### 3. Outlier Removal
 
 ``` python
 #remove prcp for outlier consideration since it is so highly skewed
