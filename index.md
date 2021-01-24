@@ -13,7 +13,7 @@ Below are links to three separate projects that showcase the value of python for
 >This analysis of hypothetical telecommunications data demonstrates how a logistic regression algorithm may be trained and tested to effectively predict customer attrition. [Click Here to view](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/customer_churn_project/overview.md)
 
 
-**Project 2: [Chatbot Intent Generation and Text Classification](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/text_classification.ipynb)**
+**Project 2: [Chatbot Intent Generation and Text Classification](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/text_classification.html)**
 >If a business with a high-volume ticketing system would like to use a conversationally capable chatbot to reduce agent time sink, this approach may be of significant value. With text classification, it is possible to train a chatbot to recognize certain categories of support tickets. [Click Here to view](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/text_classification.ipynb)
 
 
