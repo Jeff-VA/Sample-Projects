@@ -190,6 +190,10 @@ while (obs_to_remove > 0):
 print('Obervations removed: {}'.format(obs_removed)) 
 ```
 
+Finally, a clean dataset containing only fire observation size in acres and prepared numeric input variables including weather data is ready for multiple linear regression analysis. 
+
+![clean dataset table](clean_dataset_preview.png)
+
 ``` python
 
 ```
