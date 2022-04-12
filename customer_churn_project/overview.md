@@ -12,4 +12,4 @@ Second, a logistic regression model is iteratively reduced of input variables un
 
 The resulting logistic regression model from this analysis model successfully predicts customer churn with a predictive accuracy of about 89%. With this code, an analytics pipeline may be easily modularized, recursively reused, and applied to a variety of data. A similar pipeline might also be used to predict other types of binary phenomena in a variety of datasets with little adjustment. For example, a logistic regression model with variable reduction might predict whether a specific customer is likely to buy a certain product or not.
 
-*For a detailed report that explains the [source code](customer_churn_prediction.ipynb) in its entirety, [click here](https://jeff-va.github.io/Sample-Projects/customer_churn_project/customer_churn_prediction_report.pdf).*
+*For a detailed report that explains the [source code](https://github.com/Jeff-VA/Sample-Projects/blob/gh-pages/customer_churn_project/customer_churn_prediction.ipynb) in its entirety, [click here](https://jeff-va.github.io/Sample-Projects/customer_churn_project/customer_churn_prediction_report.pdf).*
