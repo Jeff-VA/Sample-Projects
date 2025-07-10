@@ -2,7 +2,7 @@
 
 ## About Me
 
-Thank you for taking the time to preview a few of my data analysis sample projects. Currently, I am an MIS team specialist for a business-to-business IT Services and print management company. I love this role as I have a passion for exploring data and transforming it in novel ways to gain insight. From my experience of data maintenance and reporting in a fast-growing organization in tandem with achieving a Master of Science in Data Analytics degree, I am certain that my skillset will create value for a variety of business functions and data consumers wherever it is applied. I am genuinely excited to build and refine data analysis pipelines for data consumers and business stakeholders in my future career.
+Thank you for taking the time to preview a few of my data analysis sample projects. Currently, I work as a technical manager for a team of twelve data analysts and data engineers at Charter Communications. I love this role as I get to apply my passion for exploring massively big data and transforming it in novel ways to gain insight. From my experience of engineering and analysis in a fast-growing organization in tandem with achieving a Master of Science in Data Analytics and pursuing a Doctor of Philosophy in data science, I am certain that my skillset will create value for a variety of business functions and data consumers wherever it is applied. I am genuinely excited to build and refine data science pipelines for data consumers and business stakeholders in my future career.
 
 ## Projects Overview
 
